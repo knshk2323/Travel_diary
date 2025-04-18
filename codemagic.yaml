@@ -5,6 +5,7 @@ workflows:
       flutter: stable
       xcode: latest  # Note: This should be at same level as 'environment'
     scripts:
+      - flutter pub get
       - flutter build ios --simulator
       - mkdir -p build/ios/ipa
       - zip -r build/ios/ipa/Runner.app.zip build/ios/iphonesimulator/Runner.app
