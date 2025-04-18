@@ -4,9 +4,33 @@ workflows:
     environment:
       flutter: stable
       xcode: latest
+    instance_type: mac_mini_m2  # Explicitly specify M2 instance
+    caching:
+      cache_paths:
+        - ~/.pub-cache
+        - ios/Pods
     scripts:
-      - flutter build ios --simulator
+      # Set up environment
+      - flutter pub get
+      - cd ios && pod install --repo-update && cd ..
+
+      # Generate localizations (if needed)
+      - flutter gen-l10n
+
+      # Build with verbose logging
+      - flutter build ios --simulator --verbose
+
+      # Create artifacts directory
       - mkdir -p build/ios/ipa
+
+      # Package the app
       - zip -r build/ios/ipa/Runner.app.zip build/ios/iphonesimulator/Runner.app
+
+      # Verify the zip was created
+      - ls -lh build/ios/ipa/
     artifacts:
       - build/ios/ipa/Runner.app.zip
+    publishing:
+      email:
+        recipients:
+          - kurahusk.06@gmail.com
