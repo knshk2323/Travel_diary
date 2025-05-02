@@ -9,11 +9,32 @@ void main() {
   runApp(const TravelDiaryApp());
 }
 
-class TravelDiaryApp extends StatelessWidget {
+class TravelDiaryApp extends StatefulWidget {
   const TravelDiaryApp({super.key});
 
   @override
+  State<TravelDiaryApp> createState() => _TravelDiaryAppState();
+}
+
+class _TravelDiaryAppState extends State<TravelDiaryApp> {
+  Locale _locale = const Locale('kk');
+  ThemeMode _themeMode = ThemeMode.system;
+
+  void _setLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
+
+  void _setThemeMode(ThemeMode themeMode) {
+    setState(() {
+      _themeMode = themeMode;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Travel Diary',
@@ -22,8 +43,8 @@ class TravelDiaryApp extends StatelessWidget {
         brightness: Brightness.light,
         colorSchemeSeed: Colors.teal,
         textTheme: const TextTheme(
-          bodyLarge: TextStyle(color: Colors.black87),   // Replaces bodyText2
-          titleLarge: TextStyle(color: Colors.black),    // Replaces headline6
+          bodyLarge: TextStyle(color: Colors.black87),
+          titleLarge: TextStyle(color: Colors.black),
         ),
       ),
       darkTheme: ThemeData(
@@ -35,13 +56,7 @@ class TravelDiaryApp extends StatelessWidget {
           titleLarge: TextStyle(color: Colors.white),
         ),
       ),
-
-
-      themeMode: ThemeMode.system, // This automatically switches between light and dark mode
-      routes: {
-        '/about': (context) => const AboutPage(),
-        '/settings': (context) => const SettingsPage(),
-      },
+      themeMode: _themeMode,
       localizationsDelegates: [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -53,16 +68,16 @@ class TravelDiaryApp extends StatelessWidget {
         Locale('ru'),
         Locale('kk'),
       ],
-      localeResolutionCallback: (locale, supportedLocales) {
-        if (locale == null) return const Locale('kk');
-        for (var supportedLocale in supportedLocales) {
-          if (supportedLocale.languageCode == locale.languageCode) {
-            return supportedLocale;
-          }
-        }
-        return const Locale('kk');
+      locale: _locale,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MainPage(),
+        '/about': (context) => const AboutPage(),
+        '/settings': (context) => SettingsPage(
+          onLocaleChanged: _setLocale,
+          onThemeChanged: _setThemeMode,
+        ),
       },
-      home: const MainPage(),
     );
   }
 }
@@ -77,14 +92,23 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
 
-  final List<Widget> _pages = const [
-    HomePage(),
-    AboutPage(),
-    SettingsPage(),
+  final List<Widget> _pages = [
+    const HomePage(),
+    const AboutPage(),
+    SettingsPage(
+      onLocaleChanged: (locale) {
+        // Handle locale change here
+      },
+      onThemeChanged: (themeMode) {
+        // Handle theme change here
+      },
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -93,20 +117,24 @@ class _MainPageState extends State<MainPage> {
         onTap: (index) {
           setState(() {
             _currentIndex = index;
+            // Navigate to Settings page if the index is 2
+            if (_currentIndex == 2) {
+              Navigator.pushNamed(context, '/settings');
+            }
           });
         },
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: const Icon(Icons.home),
+            label: local.navHome,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.info),
-            label: 'About',
+            icon: const Icon(Icons.info),
+            label: local.navAbout,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: const Icon(Icons.settings),
+            label: local.navSettings,
           ),
         ],
       ),
@@ -156,12 +184,17 @@ class _AddTripScreenState extends State<AddTripScreen> {
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
+                    // Validate the image URL
+                    String imageUrl = _imageUrlController.text;
+                    if (imageUrl.isEmpty || !Uri.tryParse(imageUrl)!.hasScheme == true) {
+                      // If the URL is invalid, use the default image URL
+                      imageUrl = "https://images.unsplash.com/photo-1454117096348-e4abbeba002c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+                    }
+
                     final newTrip = {
                       'title': _titleController.text,
                       'desc': _descController.text,
-                      'image': _imageUrlController.text.isEmpty
-                          ? 'https://via.placeholder.com/400'
-                          : _imageUrlController.text,
+                      'image': imageUrl,
                     };
                     Navigator.pop(context, newTrip);
                   }

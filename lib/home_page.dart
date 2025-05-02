@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'about_page.dart'; // Add AboutPage import
+import 'about_page.dart';
 import 'settings_page.dart';
 import 'main.dart';
 
@@ -24,25 +24,6 @@ class _HomePageState extends State<HomePage> {
       'image': 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34'
     }
   ];
-
-  final Set<int> _expandedCards = {};
-
-  void _addTrip() {
-    setState(() {
-      _trips.add({
-        'title': 'New Trip',
-        'desc': 'Description of a new trip.',
-        'image': 'https://images.unsplash.com/photo-1521747116042-5a810fda9664'
-      });
-    });
-  }
-
-  void _removeTrip(int index) {
-    setState(() {
-      _trips.removeAt(index);
-      _expandedCards.remove(index);
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -113,12 +94,12 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Text(
                           trip['title']!,
-                          style: Theme.of(context).textTheme.titleLarge,  // Using the updated headline5
+                          style: Theme.of(context).textTheme.titleLarge,
                         ),
                         const SizedBox(height: 6),
                         Text(
                           trip['desc']!,
-                          style: Theme.of(context).textTheme.bodyLarge,  // Using the updated bodyText1
+                          style: Theme.of(context).textTheme.bodyLarge,
                         ),
                       ],
                     ),

@@ -16,5 +16,12 @@
   "currentLanguage": "Қазіргі тіл",
   "homeTitle": "Сапар жоспарлаушы",
   "tripDeleted": "жойылды.",
-  "undo": "Болдырмау"
+  "undo": "Болдырмау",
+  "theme": "Тема",
+  "selectLanguage": "Тілді таңдау",
+  "back": "Артқа",
+  "save": "Сақтау",
+  "navSettings": "Баптаулар",
+  "navAbout": "Қосымша Туралы",
+  "navHome": "Сапарлар"
 }

@@ -16,5 +16,12 @@
   "currentLanguage": "Текущий язык",
   "homeTitle": "Планировщик поездок",
   "tripDeleted": "был удален",
-  "undo": "Отменить"
+  "undo": "Отменить",
+  "theme": "Тема",
+  "selectLanguage": "Выбрать язык",
+  "back": "Назад",
+  "save": "Сохранить",
+  "navSettings": "Настройки",
+  "navAbout": "О проекте",
+  "navHome": "Домой"
 }

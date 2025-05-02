@@ -16,5 +16,12 @@
   "currentLanguage": "Current Language",
   "homeTitle": "Trip Planner",
   "tripDeleted": "has been deleted.",
-  "undo": "Undo"
+  "undo": "Undo",
+  "theme": "Theme",
+  "selectLanguage": "Select Language",
+  "back": "Back",
+  "save": "Save",
+  "navSettings": "Settings",
+  "navAbout": "About",
+  "navHome": "Home"
 }
