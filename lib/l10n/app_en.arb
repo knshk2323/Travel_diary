@@ -2,7 +2,7 @@
   "@@locale": "en",
   "aboutTitle": "About",
   "appName": "Travel Diary",
-  "appDescription": "Travel Diary is a mobile application that allows users to record their trips with descriptions and attach photos. It helps users document their journeys, preserve memories, and share experiences.",
+  "appDescription": "Your personal travel companion",
   "creditsTitle": "Credits",
   "developers": "Developed by Diana Kumarbekova, Kunshuak Asset, Magzhan Kydyrbek in the scope of the course \"Cross-platform Development\" at Astana IT University.",
   "mentor": "Mentor (Teacher): Assistant Professor Abzal Kyzyrkanov",
@@ -14,7 +14,7 @@
   "settingsTitle": "Settings",
   "showDeveloperInfo": "Show Developer Info",
   "currentLanguage": "Current Language",
-  "homeTitle": "Trip Planner",
+  "homeTitle": "My Trips",
   "tripDeleted": "has been deleted.",
   "undo": "Undo",
   "theme": "Theme",
@@ -23,5 +23,146 @@
   "save": "Save",
   "navSettings": "Settings",
   "navAbout": "About",
-  "navHome": "Home"
+  "navHome": "Home",
+  "appTitle": "Travel Diary",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "loginTitle": "Welcome Back",
+  "@loginTitle": {
+    "description": "Title shown on the login screen"
+  },
+  "registerTitle": "Create Account",
+  "@registerTitle": {
+    "description": "Title shown on the registration screen"
+  },
+  "emailLabel": "Email",
+  "@emailLabel": {
+    "description": "Label for email input field"
+  },
+  "passwordLabel": "Password",
+  "@passwordLabel": {
+    "description": "Label for password input field"
+  },
+  "loginButton": "Login",
+  "@loginButton": {
+    "description": "Text for the login button"
+  },
+  "registerButton": "Register",
+  "@registerButton": {
+    "description": "Text for the register button"
+  },
+  "guestButton": "Continue as Guest",
+  "@guestButton": {
+    "description": "Text for the guest login button"
+  },
+  "needAccount": "Need an account? Register",
+  "@needAccount": {
+    "description": "Text for the register link on login screen"
+  },
+  "haveAccount": "Already have an account? Login",
+  "@haveAccount": {
+    "description": "Text for the login link on register screen"
+  },
+  "@homeTitle": {
+    "description": "Title shown on the home screen"
+  },
+  "addTripTitle": "Add Trip",
+  "@addTripTitle": {
+    "description": "Title shown on the add trip screen"
+  },
+  "tripNameLabel": "Trip Name",
+  "@tripNameLabel": {
+    "description": "Label for trip name input field"
+  },
+  "tripDescriptionLabel": "Description",
+  "@tripDescriptionLabel": {
+    "description": "Label for trip description input field"
+  },
+  "tripImageLabel": "Image URL",
+  "@tripImageLabel": {
+    "description": "Label for trip image URL input field"
+  },
+  "pickImageButton": "Pick from gallery",
+  "@pickImageButton": {
+    "description": "Text for the image picker button"
+  },
+  "saveButton": "Save",
+  "@saveButton": {
+    "description": "Text for the save button"
+  },
+  "profileTitle": "Profile",
+  "@profileTitle": {
+    "description": "Title shown on the profile screen"
+  },
+  "displayNameLabel": "Display Name",
+  "@displayNameLabel": {
+    "description": "Label for display name input field"
+  },
+  "signOutButton": "Sign Out",
+  "@signOutButton": {
+    "description": "Text for the sign out button"
+  },
+  "@settingsTitle": {
+    "description": "Title shown on the settings screen"
+  },
+  "themeLabel": "Theme",
+  "@themeLabel": {
+    "description": "Label for theme selection"
+  },
+  "systemTheme": "System",
+  "@systemTheme": {
+    "description": "Text for system theme option"
+  },
+  "lightTheme": "Light",
+  "@lightTheme": {
+    "description": "Text for light theme option"
+  },
+  "darkTheme": "Dark",
+  "@darkTheme": {
+    "description": "Text for dark theme option"
+  },
+  "languageLabel": "Language",
+  "@languageLabel": {
+    "description": "Label for language selection"
+  },
+  "@aboutTitle": {
+    "description": "Title shown on the about screen"
+  },
+  "offlineMode": "Offline Mode - Changes will sync when online",
+  "@offlineMode": {
+    "description": "Text shown when app is in offline mode"
+  },
+  "loginRequired": "Please log in to access this feature",
+  "@loginRequired": {
+    "description": "Text shown when a feature requires login"
+  },
+  "noTrips": "No trips yet",
+  "@noTrips": {
+    "description": "Text shown when there are no trips"
+  },
+  "addFirstTrip": "Add your first trip by tapping the + button",
+  "@addFirstTrip": {
+    "description": "Text shown when there are no trips"
+  },
+  "tripDeleted": "Trip deleted",
+  "@tripDeleted": {
+    "description": "Text shown when a trip is deleted"
+  },
+  "undoDelete": "Undo",
+  "@undoDelete": {
+    "description": "Text for the undo delete action"
+  },
+  "cancelButton": "Cancel",
+  "deleteButton": "Delete",
+  "undoButton": "Undo",
+  "themeTitle": "Theme",
+  "languageTitle": "Language",
+  "versionLabel": "Version",
+  "logoutButton": "Logout",
+  "errorGeneric": "Something went wrong",
+  "errorNoInternet": "No internet connection",
+  "errorInvalidEmail": "Invalid email address",
+  "errorInvalidPassword": "Password must be at least 6 characters",
+  "errorRequiredField": "This field is required"
 }

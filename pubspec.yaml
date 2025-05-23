@@ -1,19 +1,38 @@
 name: travel_diary
-description: "A new Flutter project."
+description: "A cross-platform travel diary application with offline support."
 publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.0.0  # или выше (например, ^3.3.0)
+  sdk: ^3.0.0
 
 dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  
+  # State Management
+  provider: ^6.0.0
+  
+  # Local Storage
+  shared_preferences: ^2.0.0
+  sqflite: ^2.3.0
+  path_provider: ^2.1.0
+  path: ^1.8.0
+  
+  # UI Components
   google_fonts: ^6.2.1
   image_picker: ^1.1.1
-  path_provider: ^2.1.2
+  cached_network_image: ^3.3.0
+  flutter_offline: ^3.0.1
+  connectivity_plus: ^5.0.0
+  
+  # Localization
+  intl: 0.19.0
+  
+  # Utils
+  uuid: ^4.2.2
 
 dev_dependencies:
   flutter_test:
@@ -24,11 +43,14 @@ flutter:
   uses-material-design: true
   generate: true
   assets:
-    - assets/images/  # (опционально, если есть изображения)
+    - assets/images/
+    - assets/translations/
 
-# Отдельный блок для локализации (не внутри flutter!)
-l10n:
-  arb-dir: lib/l10n
-  template-arb-file: app_en.arb
-  output-localization-file: app_localizations.dart
-  output-class: AppLocalizations
+# Localization configuration
+flutter_intl:
+  enabled: true
+  class_name: AppLocalizations
+  main_locale: en
+  arb_dir: lib/l10n
+  output_dir: lib/gen_l10n
+  use_deferred_loading: false
